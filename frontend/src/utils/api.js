@@ -88,20 +88,21 @@ class Api {
   /* /SET */
 };
 
-// const api = new Api({
-//   url: 'http://api.yp.gks.mesto.nomoredomains.monster/',
-//   headers: {
-//     authorization: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MGU1OWMyM2ZjZGExMzIxYzllODRjNjEiLCJpYXQiOjE2MjU4MDU5MjUsImV4cCI6MTYyNjQxMDcyNX0.XkZqhYcpfne2NXs5r65gmXfokrdTROc7a6P8b5NTz-8',
-//     'Content-Type': 'application/json; charset=UTF-8'
-//   }
-// });
-
 const api = new Api({
-  url: 'https://mesto.nomoreparties.co/v1/cohort-22/',
+  url: 'http://api.yp.gks.mesto.nomoredomains.monster/',
   headers: {
-    authorization: 'fc55fa6a-67b0-4119-9d98-e2f765087414',
-    'Content-Type': 'application/json; charset=UTF-8'
+   'Content-Type': 'application/json; charset=utf-8'
   }
 });
 
 export default api;
+
+// const api = new Api({
+//   url: 'https://mesto.nomoreparties.co/v1/cohort-22/',
+//   headers: {
+//     authorization: 'fc55fa6a-67b0-4119-9d98-e2f765087414',
+//     'Content-Type': 'application/json; charset=UTF-8'
+//   }
+// });
+
+// authorization: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MGU1OWMyM2ZjZGExMzIxYzllODRjNjEiLCJpYXQiOjE2MjU4MDU5MjUsImV4cCI6MTYyNjQxMDcyNX0.XkZqhYcpfne2NXs5r65gmXfokrdTROc7a6P8b5NTz-8',
