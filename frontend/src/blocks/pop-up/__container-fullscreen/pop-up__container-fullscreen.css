@@ -1,0 +1,7 @@
+.pop-up__container-fullscreen {
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  cursor: default;
+}

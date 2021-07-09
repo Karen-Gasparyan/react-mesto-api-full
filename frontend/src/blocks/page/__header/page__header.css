@@ -1,0 +1,13 @@
+.page__header {
+  max-width: 100%;
+  min-height: 56px;
+  margin: 0 auto 42px;
+}
+
+@media (min-width: 1024px) {
+  .page__header {
+    max-width: 880px;
+    min-height: 74px;
+    margin-bottom: 40px;
+  }
+}

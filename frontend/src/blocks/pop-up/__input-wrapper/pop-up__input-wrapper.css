@@ -1,0 +1,10 @@
+.pop-up__input-wrapper {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  min-height: 70px;
+}
+
+.pop-up__input-wrapper:last-of-type {
+  min-height: 75px;
+}

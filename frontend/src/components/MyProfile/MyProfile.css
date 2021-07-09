@@ -1,0 +1,36 @@
+.my-profile {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  min-height: 142px;
+}
+
+.my-profile__email {
+  margin: 0 auto 18px;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 22px;
+  color: #FFF;
+}
+
+.my-profile__out-btn {
+  margin: 0 auto;
+  padding: 0;
+  max-width: 60px;
+  font-size: 18px;
+  line-height: 22px;
+  color: #A9A9A9;
+  background-color: #000;
+  border: none;
+}
+
+.my-profile__out-btn:hover {
+  cursor: pointer;
+}
+
+@media (min-width: 1024px) {
+  .my-profile {
+    display: none;
+  }
+}

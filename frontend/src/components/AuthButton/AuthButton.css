@@ -1,0 +1,26 @@
+.auth-button {
+  height: 100%;
+  margin: 5px 30px 0 0;
+  text-decoration: none;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 17px;
+  color: #FFF;
+  background-color: #000;
+  border: none;
+  cursor: pointer;
+  transition: .5s;
+}
+
+.auth-button:hover {
+  opacity: .6;
+}
+
+@media (min-width: 1024px) {
+  .auth-button {
+    font-size: 18px;
+    line-height: 22px;
+    margin: 10px 0 0 0;
+  }
+}

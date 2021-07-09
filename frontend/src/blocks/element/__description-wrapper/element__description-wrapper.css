@@ -1,0 +1,9 @@
+.element__description-wrapper {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0 auto 31px;
+  padding: 0 21px 0 15px;
+  box-sizing: border-box;
+}

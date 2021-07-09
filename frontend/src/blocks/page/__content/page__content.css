@@ -1,0 +1,11 @@
+.page__content {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 48px;
+}
+
+@media (min-width: 1024px) {
+  .page__content {
+    margin-bottom: 66px;
+  }
+}

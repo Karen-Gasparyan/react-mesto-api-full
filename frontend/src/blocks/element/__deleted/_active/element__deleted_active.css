@@ -1,0 +1,20 @@
+.element__deleted_active {
+  display: flex;
+  position: absolute;
+  outline: none;
+  padding: 0;
+  border: 0;
+  top: 18px;
+  right: 15px;
+  width: 18px;
+  height: 19.3px;
+  cursor: pointer;
+  transition: .5s;
+  background: url(../../../../images/deleted-icon.svg) center / contain no-repeat;
+}
+
+@media (min-width: 1024px) {
+  .element__deleted_active:hover {
+    opacity: .6;
+  }
+}

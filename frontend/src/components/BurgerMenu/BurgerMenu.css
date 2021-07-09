@@ -1,0 +1,13 @@
+.header__burger-menu {
+  background-color: #000;
+  border: none;
+  margin: 0 30px 25px 0;
+  padding: 0;
+  height: 100%;
+}
+
+@media (min-width: 1024px) {
+  .header__burger-menu {
+    display: none;
+  }
+}

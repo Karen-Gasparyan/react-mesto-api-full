@@ -1,0 +1,83 @@
+.auth__form {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.auth__inputs-wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 140px;
+  margin: 0 0 130px 0;
+}
+
+.auth__input-wrapper {
+  margin-bottom: 5px;
+  min-height: 65px;
+}
+
+.auth__input-text {
+  width: 100%;
+  border: 0;
+  margin: 0 0 3px 0;
+  padding: 0 0 11px 0;
+  border-bottom: 2px solid #CCCCCC;
+  background-color: #000;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 17px;
+  color: #FFF;
+}
+
+.auth__input-text:focus {
+  outline: none;
+}
+
+.auth__register-btn {
+  margin: 0 auto 15px;
+  padding: 0;
+  border: none;
+  background-color: #fff;
+  transition: .5s;
+  border-radius: 2px;
+  max-width: 358px;
+  width: 100%;
+  min-height: 46px;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 16px;
+  line-height: 19px;
+  text-align: center;
+  color: #000;
+}
+
+.auth__register-btn:hover {
+  cursor: pointer;
+  opacity: 0.85;
+}
+
+.auth__register-btn_invalid {
+  background: #F7F7F7;
+  border: 1px solid #000000;
+  color: #000000;
+  opacity: 0.2;
+}
+
+.auth__register-btn_invalid:hover {
+  opacity: 0.2;
+}
+
+@media (min-width: 1024px) {
+  .auth__inputs-wrapper {
+    min-height: 110px;
+    margin: 0 0 180px 0;
+  }
+
+  .auth__register-btn {
+    min-height: 50px;
+    font-size: 18px;
+    line-height: 22px;
+  }
+}

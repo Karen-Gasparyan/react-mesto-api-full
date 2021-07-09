@@ -1,0 +1,17 @@
+.loged__switch-button {
+  background-color: #000;
+  border: none;
+  padding: 0;
+  transition: .5s;
+}
+
+.loged__switch-button:hover {
+  cursor: pointer;
+  opacity: .6;
+}
+
+@media (min-width: 1024px) {
+  .loged__switch-button {
+    display: none;
+  }
+}

@@ -1,0 +1,20 @@
+.infoTooltip-icon {
+  width: 120px;
+  height: 120px;
+  margin: 25px auto 40px;
+}
+
+.infoTooltip-title {
+  text-align: center;
+   margin-bottom: 25px;
+}
+
+.infoTooltip-button {
+  right: calc(50% - 13px);
+}
+
+@media (min-width: 768px) {
+  .infoTooltip-button {
+    right: -40px;
+  }
+}
