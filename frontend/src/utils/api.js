@@ -1,7 +1,6 @@
 class Api {
-  constructor(config) {
-    this._url = config.url;
-    this._headers = config.headers;
+  constructor(url) {
+    this._BASE_URL = url;
   };
 
   _checkResponse(res) {
@@ -12,75 +11,79 @@ class Api {
     }
   };
 
+  _headerHeandler(token) {
+    return {
+      "Authorization" : `Bearer ${token}`,
+      "Content-Type": "application/json; charset=UTF-8"
+    };
+  }
+
   /* GET */
-  getInitialCards() {
-    return fetch(`${this._url}cards`, {
+  getInitialCards(token) {
+    return fetch(`${this._BASE_URL}cards`, {
       method: 'GET',
-      headers: this._headers
+      headers: this._headerHeandler(token)
     })
     .then(this._checkResponse)
   };
 
-  getUserInfo() {
-    return fetch(`${this._url}users/me`, {
+  getUserInfo(token) {
+    return fetch(`${this._BASE_URL}users/me`, {
       method: 'GET',
-      headers: this._headers
+      headers: this._headerHeandler(token)
     })
     .then(this._checkResponse)
   };
   /* /GET */
 
-
   /* SET */
-  setUserAvatar(link) {
-    return fetch(`${this._url}users/me/avatar`, {
+  setUserAvatar(token, link) {
+    return fetch(`${this._BASE_URL}users/me/avatar`, {
       method: 'PATCH',
-      headers: this._headers,
+      headers: this._headerHeandler(token),
       body: JSON.stringify({ avatar: link })
     })
     .then(this._checkResponse)
   };
 
-  setUserInfo(name, about) {
-    return fetch(`${this._url}users/me`, {
+  setUserInfo(token, name, about) {
+    return fetch(`${this._BASE_URL}users/me`, {
       method: 'PATCH',
-      headers: this._headers,
+      headers: this._headerHeandler(token),
       body: JSON.stringify({ name, about })
     })
     .then(this._checkResponse)
   };
 
-  setNewCard(data) {
-    return fetch(`${this._url}cards`, {
+  setNewCard(token, data) {
+    return fetch(`${this._BASE_URL}cards`, {
       method: 'POST',
-      headers: this._headers,
+      headers: this._headerHeandler(token),
       body: JSON.stringify(data)
     })
     .then(this._checkResponse)
   };
 
-  deleteCard(id) {
-    return fetch(`${this._url}cards/${id}`, {
+  deleteCard(token, id) {
+    return fetch(`${this._BASE_URL}cards/${id}`, {
       method: 'DELETE',
-      headers: this._headers,
+      headers: this._headerHeandler(token),
       body: JSON.stringify({ _id: id })
     })
     .then(this._checkResponse)
   };
 
-  changeLike(id, isLiked) {
+  changeLike(token, id, isLiked) {
     if(isLiked) {
-      return fetch(`${this._url}cards/likes/${id}`, {
+      return fetch(`${this._BASE_URL}cards/${id}/likes`, {
       method: 'PUT',
-      headers: this._headers,
-      body: JSON.stringify({ _id: id })
+      headers: this._headerHeandler(token)
     })
       .then(this._checkResponse)
     } else {
-        return fetch(`${this._url}cards/likes/${id}`, {
+        return fetch(`${this._BASE_URL}cards/${id}/likes`, {
           method: 'DELETE',
-          headers: this._headers,
-          body: JSON.stringify({ _id: id })
+          headers: this._headerHeandler(token)
         })
           .then(this._checkResponse)
     }
@@ -88,21 +91,7 @@ class Api {
   /* /SET */
 };
 
-const api = new Api({
-  url: 'http://api.yp.gks.mesto.nomoredomains.monster/',
-  headers: {
-   'Content-Type': 'application/json; charset=utf-8'
-  }
-});
-
+const api = new Api('http://localhost:5000/');
+// http://localhost:5000/
+// https://api.yp.gks.mesto.nomoredomains.monster/
 export default api;
-
-// const api = new Api({
-//   url: 'https://mesto.nomoreparties.co/v1/cohort-22/',
-//   headers: {
-//     authorization: 'fc55fa6a-67b0-4119-9d98-e2f765087414',
-//     'Content-Type': 'application/json; charset=UTF-8'
-//   }
-// });
-
-// authorization: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MGU1OWMyM2ZjZGExMzIxYzllODRjNjEiLCJpYXQiOjE2MjU4MDU5MjUsImV4cCI6MTYyNjQxMDcyNX0.XkZqhYcpfne2NXs5r65gmXfokrdTROc7a6P8b5NTz-8',

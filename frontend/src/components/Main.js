@@ -24,6 +24,7 @@ function Main({
           <div className="profile__avatar-wrapper">
             <img
               src={avatar}
+              onError={(e)=> e.target.src = 'https://user-images.githubusercontent.com/24848110/33519396-7e56363c-d79d-11e7-969b-09782f5ccbab.png'}
               alt="Аватар"
               className="profile__avatar" />
             <div
@@ -52,13 +53,13 @@ function Main({
       <section
         className="elements content__elements"
         aria-label="Карточки, с фотографиями мест" >
-          {cardsError || cards.map((values)=>
+          {cardsError || cards.map(values =>
             (<Card
-                key={values._id}
-                cardValues={values}
-                onCardClick={onCardClick}
-                onCardLike={onCardLike}
-                onCardDelete={onCardDelete} />)
+              key={values._id}
+              cardValues={values}
+              onCardClick={onCardClick}
+              onCardLike={onCardLike}
+              onCardDelete={onCardDelete} />)
           )}
       </section>
     </div>

@@ -2,31 +2,24 @@ const express = require('express');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const { celebrate, Joi, errors } = require('celebrate');
+// const cors = require('cors');
+
+require('dotenv').config();
 
 const { PORT, IMAGE_REGEX } = require('./config');
 const { login, createUser } = require('./controllers/users');
 const NotFoundError = require('./errors/not-found-error');
-// const allowedCors = require('./middlewares/allowedCors ');
 const auth = require('./middlewares/auth');
+const cors = require('./middlewares/cors');
 const errorHandler = require('./middlewares/errorHandler');
 const { requestLogger, errorLogger } = require('./middlewares/logger');
 
 const app = express();
 
-app.use((req, res, next) => {
-  res.header('Access-Control-Allow-Origin', '*');
-
-  res.header(
-    'Access-Control-Allow-Headers',
-    'Origin, X-Requested-With, Content-Type, Accept',
-  );
-  res.header(
-    'Access-Control-Allow-Methods',
-    'GET,HEAD,PUT,PATCH,POST,DELETE',
-  );
-
-  next();
-});
+app.use(cors);
+// app.use(cors());
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
 
 mongoose.connect('mongodb://localhost:27017/mestodb', {
   useUnifiedTopology: true,
@@ -35,10 +28,13 @@ mongoose.connect('mongodb://localhost:27017/mestodb', {
   useFindAndModify: false,
 });
 
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: true }));
+app.use(requestLogger);
 
-app.use(requestLogger); // логгер запросов
+app.get('/crash-test', () => {
+  setTimeout(() => {
+    throw new Error('Сервер сейчас упадёт');
+  }, 0);
+});
 
 app.post('/signin', celebrate({
   body: Joi.object().keys({
@@ -70,7 +66,7 @@ app.use(() => {
   throw new NotFoundError('Нет ответа на данный запрос');
 });
 
-app.use(errorLogger); // логгер ошибок
+app.use(errorLogger);
 
 app.use(errors());
 app.use(errorHandler);
