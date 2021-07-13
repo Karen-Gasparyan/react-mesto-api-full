@@ -4,24 +4,28 @@ const validator = require('validator');
 
 const bcrypt = require('bcryptjs');
 
+const { IMAGE_REGEX, DEFAULT_USER } = require('../config');
+
+const { name, about, avatar } = DEFAULT_USER;
+
 const userSchema = new mongoose.Schema({
   name: {
     type: String,
-    default: 'Жак-Ив Кусто',
+    default: name,
     minlength: 2,
     maxlength: 30,
   },
   about: {
     type: String,
-    default: 'Исследователь',
+    default: about,
     minlength: 2,
     maxlength: 30,
   },
   avatar: {
     type: String,
-    default: 'https://pictures.s3.yandex.net/resources/jacques-cousteau_1604399756.png',
+    default: avatar,
     validate(value) {
-      const urlRegex = /(ftp|http|https):\/\/(\w+:{0,1}\w*@)?(\S+)(:[0-9]+)?(\/|\/([\w#!:.?+=&%@!\-/]))?/;
+      const urlRegex = IMAGE_REGEX;
       return urlRegex.test(value);
     },
   },

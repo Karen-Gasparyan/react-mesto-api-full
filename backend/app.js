@@ -2,7 +2,6 @@ const express = require('express');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const { celebrate, Joi, errors } = require('celebrate');
-// const cors = require('cors');
 
 require('dotenv').config();
 
@@ -17,7 +16,6 @@ const { requestLogger, errorLogger } = require('./middlewares/logger');
 const app = express();
 
 app.use(cors);
-// app.use(cors());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 

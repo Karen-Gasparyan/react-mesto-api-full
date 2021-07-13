@@ -1,5 +1,7 @@
 const mongoose = require('mongoose');
 
+const { IMAGE_REGEX } = require('../config');
+
 const cardSchema = new mongoose.Schema({
   name: {
     type: String,
@@ -11,7 +13,7 @@ const cardSchema = new mongoose.Schema({
     type: String,
     required: true,
     validate(value) {
-      const urlRegex = /(ftp|http|https):\/\/(\w+:{0,1}\w*@)?(\S+)(:[0-9]+)?(\/|\/([\w#!:.?+=&%@!\-/]))?/;
+      const urlRegex = IMAGE_REGEX;
       return urlRegex.test(value);
     },
   },

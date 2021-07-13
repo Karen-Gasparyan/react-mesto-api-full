@@ -59,7 +59,7 @@ module.exports.likeCard = (req, res, next) => {
   )
     .then((card) => {
       if (!card) {
-        throw new BadRequest('Переданы некорректные данные для постановки лайка');
+        throw new NotFoundError('Карточка не найдена, либо переданы некорректные данные для постановки лайка');
       }
       return res.send({ data: card });
     })
@@ -79,7 +79,7 @@ module.exports.dislikeCard = (req, res, next) => {
   )
     .then((card) => {
       if (!card) {
-        throw new BadRequest('Переданы некорректные данные для снятия лайка');
+        throw new NotFoundError('Карточка не найдена, либо переданы некорректные данные для удаления лайка');
       }
       return res.send({ data: card });
     })
